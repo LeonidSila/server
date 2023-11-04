@@ -1,0 +1,1 @@
+from dr_frend import dr_frend_kek, key
