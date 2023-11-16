@@ -75,7 +75,7 @@ async def pidor_kek(message : types.Message):
         us = us[0]
         db_bot.conn.commit()
         await bot.send_message(chat_id = id_chat, text="🏳️‍🌈 {1} на {0}% gay 🏳️‍🌈".format(int(us), us_name_1))
-        await bot.send_sticker(chat_id = id_chat, sticker= stikers_kek.list_stikers_group())
+        # await bot.send_sticker(chat_id = id_chat, sticker= stikers_kek.list_stikers_group())
         await message.delete()
     else:
         db_bot.cursor.execute('SELECT pidor_call FROM users WHERE user_id = ?', (us_id_1, ))
@@ -85,7 +85,7 @@ async def pidor_kek(message : types.Message):
         pidor_random = random.randint(1, 100)
         await message.delete()
         await bot.send_message(chat_id = id_chat, text="🏳️‍🌈 {1} на {0}% gay 🏳️‍🌈".format(int(pidor_random), us_name_1))
-        await bot.send_sticker(chat_id = id_chat, sticker= stikers_kek.list_stikers_group())
+        # await bot.send_sticker(chat_id = id_chat, sticker= stikers_kek.list_stikers_group())
         db_bot.cursor.execute('UPDATE users set pidor_call = ? where user_id = ?', (pidor_random, us_id_1, ))
         db_bot.conn.commit()
         db_bot.cursor.execute('UPDATE users set call_click = ? where user_id = ?', (1, us_id_1, ))
@@ -101,7 +101,7 @@ async def pidor_kek_day(message : types.Message):
         sorted_tuple = tuple(sorted(us, reverse=True))
         sorted_tuple = sorted_tuple[0:3]
         await bot.send_message(chat_id = id_chat, text="Пидоры дня, к Вашему вниманию:\n\n{0} (--) {1}% \n🏳️‍🌈САМЫЙ, ГРЯЗЫЙ ПИДР ДНЯ🏳️‍🌈\n\n{2} (--) {3}% \n🏳️‍🌈ГРЯЗЫЙ ПИДР ДНЯ🏳️‍🌈\n\n{4} (--) {5}% \n🏳️ПИДР ДНЯ🏳️".format(sorted_tuple[0][2],  sorted_tuple[0][0], sorted_tuple[1][2], sorted_tuple[1][0], sorted_tuple[2][2], sorted_tuple[2][0]))
-        await bot.send_sticker(chat_id = id_chat, sticker= stikers_kek.list_stikers_group())
+        # await bot.send_sticker(chat_id = id_chat, sticker= stikers_kek.list_stikers_group())
         
 async def musik_kek(message : types.Message):
     await message.delete()
@@ -121,7 +121,7 @@ async def musik_kek(message : types.Message):
     
 async def stiker_message(message : types.Message):
     await message.delete()
-    await bot.send_sticker(chat_id = id_chat, sticker= stikers_kek.list_stikers_group())
+    # await bot.send_sticker(chat_id = id_chat, sticker= stikers_kek.list_stikers_group())
     
 async def huivert(message : types.Message):
     user_id = message.from_user.id
